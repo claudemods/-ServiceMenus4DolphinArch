@@ -1,0 +1,60 @@
+# Append images vertically or horizontally and save with file save dialog
+#
+# Dependencies:
+# * imagemagick
+# * kdialog
+
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory;inode/directory-locked
+Terminal=true
+Actions=1Signout;2Reboot;3Shutdown;4SystemUpdater;5DolphinAsRoot;6ClearCachedItems;
+X-KDE-Submenu=ServiceMenus4Dolphin
+X-KDE-Submenu[nl]=ServiceMenus4Dolphin
+Icon=system-file-manager
+
+
+
+[Desktop Action 1Signout]
+Name=Signout
+Name[nl]=Signout
+Icon=system-file-manager
+Exec=bash /home/mosquito/.local/share/kio/servicemenus/signout.sh
+
+
+[Desktop Action 2Reboot]
+Name=Reboot
+Name[nl]=Reboot
+Icon=system-file-manager
+Exec=bash /home/mosquito/.local/share/kio/servicemenus/reboot.sh
+
+
+[Desktop Action 3Shutdown]
+Name=Shutdown
+Name[nl]=Shutdown
+Icon=system-file-manager
+Exec=bash /home/mosquito/.local/share/kio/servicemenus/shutdown.sh
+
+
+[Desktop Action 4SystemUpdater]
+Name=System Updater
+Name[nl]=System Updater
+Icon=system-software-update
+Exec=pkexec /home/$USER/.local/share/kio/servicemenus/Updater.sh
+Terminal=true
+
+
+[Desktop Action 5DolphinAsRoot]
+Name=open dolphin as root
+Name[nl]=open dolphin as root
+Icon=system-file-manager
+Exec=pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY KDE_SESSION_VERSION=5 KDE_FULL_SESSION=true dolphin %U;
+
+[Desktop Action 6ClearCachedItems]
+Name=ClearCachedItems
+Name[nl]=ClearCachedItems
+Icon=system-file-manager
+Exec=pkexec /home/$USER/.local/share/kio/servicemenus/scripts.sh
+Terminal=true
+
